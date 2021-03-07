@@ -4,7 +4,21 @@ const { User, Post } = require('../../models');
 
 // get all posts
 router.get('/', (req, res) => {
-    Post.findAll({})
+    Post.findAll({
+        attributes: [
+            'id',
+            'title',
+            'text',
+            'created_at'
+        ],
+        order: [['created_at', 'DESC']],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
         console.log(err);
@@ -17,7 +31,20 @@ router.get('/:id', (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id
-        }
+        },
+        attributes: [
+            'id',
+            'title',
+            'text',
+            'created_at'
+        ],
+        order: [['created_at', 'DESC']],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
     })
         .then(dbPostData => res.json(dbPostData))
         .catch(err => {
@@ -40,8 +67,38 @@ router.post('/', (req, res) => {
     });
 });
 
-// edit post
+// edit post by id
+router.put('/:id', (req, res) => {
+    Post.update(
+        // expects { title: title, text: text }
+        {
+            title: req.body.title,
+            text: req.body.text
+        },
+        {
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbPostData => res.json(dbPostData))
+    .catch(err => {
+        console.log(err)
+        res.status(500).json(err);
+    });
+});
 
-// delete post by
+// delete post by id
+router.delete('/:id', (req, res) => {
+    Post.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(dbPostData => res.json(dbPostData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
 
 module.exports = router;
