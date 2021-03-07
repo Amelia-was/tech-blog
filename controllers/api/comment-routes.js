@@ -4,7 +4,21 @@ const { User, Post, Comment } = require('../../models');
 
 // get all comments
 router.get('/', (req, res) => {
-    Comment.findAll({})
+    Comment.findAll({
+        attributes: [
+            'id',
+            'comment_text',
+            'created_at',
+            'updated_at'
+        ],
+        order: [['created_at', 'DESC']],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
     .then(dbCommentData => res.json(dbCommentData))
     .catch(err => {
         console.log(err);
@@ -17,7 +31,20 @@ router.get('/:id', (req, res) => {
     Comment.findOne({
         where: {
             id: req.params.id
-        }
+        },
+        attributes: [
+            'id',
+            'comment_text',
+            'created_at',
+            'updated_at'
+        ],
+        order: [['created_at', 'DESC']],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
     })
     .then(dbCommentData => res.json(dbCommentData))
     .catch(err => {
