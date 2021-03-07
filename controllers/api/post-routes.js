@@ -27,11 +27,11 @@ router.get('/', (req, res) => {
             }
         ]
     })
-    .then(dbPostData => res.json(dbPostData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbPostData => res.json(dbPostData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // get single post by id
@@ -62,7 +62,13 @@ router.get('/:id', (req, res) => {
             }
         ]
     })
-        .then(dbPostData => res.json(dbPostData))
+        .then(dbPostData => {
+            if (!dbPostData) {
+                res.status(404).json({ message: 'No post found with this id' });
+                return;
+            }
+            res.json(dbPostData);
+        })
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -76,11 +82,11 @@ router.post('/', (req, res) => {
         text: req.body.text,
         user_id: req.body.user_id
     })
-    .then(dbPostData => res.json(dbPostData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbPostData => res.json(dbPostData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // edit post by id
@@ -92,15 +98,21 @@ router.put('/:id', (req, res) => {
             text: req.body.text
         },
         {
-        where: {
-            id: req.params.id
-        }
-    })
-    .then(dbPostData => res.json(dbPostData))
-    .catch(err => {
-        console.log(err)
-        res.status(500).json(err);
-    });
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(dbPostData => {
+            if (!dbPostData) {
+                res.status(404).json({ message: 'No post found with this id' });
+                return;
+            }
+            res.json(dbPostData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 // delete post by id
@@ -110,11 +122,17 @@ router.delete('/:id', (req, res) => {
             id: req.params.id
         }
     })
-    .then(dbPostData => res.json(dbPostData))
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
+        .then(dbPostData => {
+            if (!dbPostData) {
+                res.status(404).json({ message: 'No post found with this id' });
+                return;
+            }
+            res.json(dbPostData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 module.exports = router;
