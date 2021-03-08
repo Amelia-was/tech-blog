@@ -1,0 +1,30 @@
+<h2>Dashboard</h3>
+
+    <h3>Create New Post</h3>
+        <form class="new-post-form">
+            <div>
+                <label for="post-title">Title</label>
+                <input type="text" id="post-title" name="post-title" />
+            </div>
+            <div>
+                <label for="post-text">Link</label>
+                <textarea id="post-text" name="post-text">Start writing...</textarea>
+            </div>
+            <button type="submit" class="btn">Create</button>
+        </form>
+
+    <h3>Your Posts</h3>
+
+    {{#if posts.length}}
+    <section>
+        <h2>Your Posts</h2>
+        <ol>
+            {{#each posts as |post|}}
+            <li>
+                {{> post-info post}}
+                <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+            </li>
+            {{/each}}
+        </ol>
+    </section>
+    {{/if}}
