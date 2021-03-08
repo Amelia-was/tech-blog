@@ -1,7 +1,7 @@
 async function addPost (event) {
     event.preventDefault();
 
-    const title = document.querySelector('#post-text').value;
+    const title = document.querySelector('#post-title').value;
     const text = document.querySelector('#post-text').value;
     
     const response = await fetch ('/api/posts', {
