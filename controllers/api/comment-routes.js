@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
+const withAuth = require('../../utils/auth');
 const { User, Post, Comment } = require('../../models');
 
 // get all comments
@@ -60,7 +61,7 @@ router.get('/:id', (req, res) => {
 });
 
 // create new comment
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Comment.create({
         comment_text: req.body.comment_text,
         user_id: req.body.user_id,
@@ -74,7 +75,7 @@ router.post('/', (req, res) => {
 });
 
 // delete comment by id
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Comment.destroy({
         where: {
             id: req.params.id
