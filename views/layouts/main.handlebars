@@ -4,31 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/stylesheets/style.css">
-    <title>Cool Tech Blog</title>
+    <title>Tech Blog</title>
 </head>
 <body>
 
-<div class="">
-    <header>
-        <h1>
-            <a href="/">Cool Tech Blog</a>
+
+    <header class="flex-row align-center justify-between">
+        <div class="heading-wrapper">
+        <a href="/">
+        <h1 class="">
+            Tech Blog
         </h1>
+        </a>
+        <h4>A tech blog subtitle.</h4>
+        </div>
         <nav>
             {{#if loggedIn}}
-            <a href="/dashboard">dashboard</a>
-            <button id="logout" class="btn-no-style">logout</button>
+            <a href="/dashboard" class="nav-link">dashboard</a>
+            <button id="logout" class="nav-link nav-button">logout</button>
             {{else}}
-            <a href="/login">login</a>
+            <a href="/login" class="nav-link nav-button">login</a>
             {{/if}}
         </nav>
     </header>
     <main>
-        {{{ body }}}
+            <div class="">
+                {{{ body }}}
+            </div>
     </main>
-    <footer>
-        This is a footer.
-    </footer>
-</div>
 
 {{#if loggedIn}}
 <script src='/javascript/logout.js'></script>

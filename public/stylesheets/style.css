@@ -4,6 +4,126 @@
     box-sizing: border-box;
 }
 
+:root {
+    --yellow: #e09f3e;
+    --lightYellow: #fff3b0;
+    --white: #ebf1f2;
+    --green: #335c67;
+    --blue: #304c89;
+    --lightBlue: #5b76b0;
+    --red: #c84630;
+    --purple: #3a2e39;
+    --smallSpacer: 10px;
+    --bigSpacer: 20px;
+}
+
 body {
-    background: lightBlue;
+    background: var(--yellow);
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+li {
+    list-style-type: none;
+}
+
+.flex-row {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+a, a:visited, a:hover {
+    text-decoration: none;
+}
+
+.title-link, .title-link:visited, .comment-link, .comment-link:visited {
+    color: #000;
+}
+
+.title-link:hover, .comment-link:hover {
+    color: var(--blue);
+}
+
+.post {
+    max-width: 300px;
+    max-height: 400px;
+    background: var(--white);
+    border-radius: var(--smallSpacer);
+    margin-right: var(--smallSpacer);
+    margin-bottom: var(--smallSpacer);
+    padding: var(--smallSpacer);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.post-title {
+    margin-bottom: var(--smallSpacer);
+    color: var(--purple);
+    font-weight: bold;
+}
+
+.post-text {
+    margin-bottom: var(--smallSpacer);
+}
+
+.meta {
+    color: #828282;
+}
+
+main {
+    padding: var(--bigSpacer);
+}
+
+h1, h4 {
+    color: var(--white);
+}
+
+header {
+    background: var(--red);
+    padding: var(--bigSpacer);
+}
+
+.nav-link {
+    color: #000;
+}
+
+.nav-link:hover {
+    color: var(--white);
+}
+
+a, button {
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    font-size: inherit;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.btn {
+    background: var(--blue);
+    padding: var(--smallSpacer);
+    border-radius: var(--smallSpacer);
+    border: none;
+    color: #FFF;
+}
+
+.edit-link, .edit-link:visited {
+    color: #FFF;
+}
+                        
+.btn:hover {
+    background: var(--lightBlue);
 }
