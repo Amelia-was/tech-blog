@@ -296,3 +296,22 @@ label {
     max-width: 575px;
     box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.1);
 }
+
+/* Media Queries */
+@media only screen and (max-width: 375px) {
+    h1 {
+        font-size: 36px;
+    }
+    .nav-link {
+        margin-bottom: var(--smallSpacer);
+    }
+    .flex-col-xs {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+    }
+};
+
+@media only screen and (max-width: 335px) {
+    
+};
