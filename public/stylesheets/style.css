@@ -142,6 +142,15 @@ button:hover {
     text-align: center;
 }
 
+.no-posts {
+    color: var(--yellow);
+}
+
+.no-posts:hover {
+    font-style: italic;
+    text-decoration: underline;
+}
+
 /* utility classes */
 
 .flex-row {
