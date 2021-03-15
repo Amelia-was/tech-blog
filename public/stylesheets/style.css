@@ -7,12 +7,14 @@
 :root {
     --yellow: #e09f3e;
     --lightYellow: #fff3b0;
-    --white: #ebf1f2;
+    --white: #f2f2f2;
     --green: #335c67;
     --blue: #304c89;
-    --lightBlue: #5b76b0;
+    --lightBlue: #3a5ca6;
     --red: #c84630;
     --purple: #3a2e39;
+    --lightPurple: #694a68;
+    --lighterPurple: #80597e;
     --smallSpacer: 10px;
     --bigSpacer: 20px;
 }
@@ -48,25 +50,20 @@ a, a:visited, a:hover {
 }
 
 .title-link:hover, .comment-link:hover {
-    color: var(--blue);
+    color: var(--lightPurple);
 }
 
 .post {
-    max-width: 300px;
-    max-height: 400px;
     background: var(--white);
-    border-radius: var(--smallSpacer);
-    margin-right: var(--smallSpacer);
-    margin-bottom: var(--smallSpacer);
     padding: var(--smallSpacer);
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .post-title {
+    font-family: 'Averia Serif Libre', cursive;
     margin-bottom: var(--smallSpacer);
     color: var(--purple);
     font-weight: bold;
+    font-size: 24px;
 }
 
 .post-text {
@@ -74,28 +71,43 @@ a, a:visited, a:hover {
 }
 
 .meta {
+    font-size: 12px;
     color: #828282;
 }
 
 main {
-    padding: var(--bigSpacer);
+    background: var(--white);
+    max-width: 1024px;
+    margin: 0 auto;
+    box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.1);
 }
 
 h1, h4 {
+    font-family: 'Averia Serif Libre', cursive;
     color: var(--white);
 }
 
+h1 {
+    font-weight: 700;
+    font-size: 48px;
+}
+
+h4 {
+    font-style: italic;
+}
+
 header {
-    background: var(--red);
+    max-width: 1024px;
+    margin: 0 auto;
     padding: var(--bigSpacer);
 }
 
 .nav-link {
-    color: #000;
+    color: #fff;
 }
 
 .nav-link:hover {
-    color: var(--white);
+    color: var(--lightPurple);
 }
 
 a, button {
@@ -113,11 +125,14 @@ button:hover {
 }
 
 .btn {
-    background: var(--blue);
+    background: var(--lightPurple);
     padding: var(--smallSpacer);
     border-radius: var(--smallSpacer);
     border: none;
     color: #FFF;
+    text-transform: uppercase;
+    box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.1);
+    font-size: smaller;
 }
 
 .edit-link, .edit-link:visited {
@@ -125,5 +140,153 @@ button:hover {
 }
                         
 .btn:hover {
-    background: var(--lightBlue);
+    background: var(--lighterPurple);
+}
+
+.comment {
+    padding: var(--smallSpacer);
+}
+
+.comment:nth-child(2n) {
+    background: #e3e3e3;
+}
+
+.post-list-item {
+    width: 100%;
+    border-bottom: 1px solid var(--lightPurple);
+}
+
+.comment .meta {
+    color: #000;
+}
+
+.form-container {
+    /* background: var(--white);
+    box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.1); */
+    /* border-radius: var(--smallSpacer); */
+    margin: var(--bigSpacer) auto;
+    max-width: 475px;
+    padding: var(--bigSpacer);
+}
+
+.back-link {
+    color: var(--lightPurple);
+}
+
+.back-link:hover {
+    color: var(--lighterPurple);
+}
+
+hr {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.login-form {
+    margin-bottom: var(--bigSpacer);
+    margin-right: var(--bigSpacer);
+}
+
+.signup-form {
+    margin-top: var(--bigSpacer);
+}
+
+.form-input {
+    margin-bottom: var(--smallSpacer);
+    max-width: 45%;
+}
+
+.flex-column {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+label {
+    font-size: 12px;
+    font-style: italic;
+    color: var(--purple);
+}
+
+h3 {
+    font-family: 'Averia Serif Libre', cursive;
+    font-size: 24px;
+    padding: var(--bigSpacer);
+    color: var(--lightPurple);
+}
+
+.login-h3 {
+    padding: 0;
+}
+
+.d-none {
+    display: none;
+}
+
+#comment-body {
+    height: 100px;
+    width: 300px;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.new-post-form {
+    background: var(--yellow);
+    padding: var(--bigSpacer);
+    margin: 0 auto;
+    max-width: 575px;
+    box-shadow: 0 5px 10px 3px rgba(0, 0, 0, 0.1);
+}
+
+.new-post-h3 {
+    padding: 0;
+    padding-bottom: var(--bigSpacer);
+}
+
+h2 {
+    font-family: 'Averia Serif Libre', cursive;
+    font-size: 36px;
+    padding: var(--bigSpacer);
+    color: var(--lightPurple);
+}
+
+.comment-form {
+    padding: var(--smallSpacer);
+}
+
+.edit-post-form {
+    padding: var(--bigSpacer);
+}
+
+.dashboard-post {
+    border: 1px solid var(--lightPurple);
+    margin-right: var(--smallSpacer);
+    margin-bottom: var(--smallSpacer);
+    width: 200px;
+    height: max-content;
+    display: inline-block;
+}
+
+.edit-link {
+    display: block;
+    background: var(--lightPurple);
+    width: 100%;
+    margin: 0;
+    margin-bottom: 0;
+    box-shadow: none;
+    border-radius: 0;
+    text-align: center;
+}
+
+.dashboard-posts {
+    padding-left: var(--bigSpacer);
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.mt-1 {
+    margin-top: var(--smallSpacer);
 }

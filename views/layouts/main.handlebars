@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/715d22d8c7.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/stylesheets/style.css">
     <title>Tech Blog</title>
 </head>
 <body>
-
 
     <header class="flex-row align-center justify-between">
         <div class="heading-wrapper">
@@ -24,13 +27,12 @@
             <button id="logout" class="nav-link nav-button">logout</button>
             {{else}}
             <a href="/login" class="nav-link nav-button">login</a>
+            <a href="login" class="btn">Sign up</a>
             {{/if}}
         </nav>
     </header>
     <main>
-            <div class="">
-                {{{ body }}}
-            </div>
+        {{{ body }}}
     </main>
 
 {{#if loggedIn}}
