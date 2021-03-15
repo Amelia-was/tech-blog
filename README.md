@@ -2,9 +2,9 @@
 
 ## Description
 
-A tech blog. Users can create an account with a username, password and an email account. 
+A tech blog website. Users can create an account with a username, password and an email account. Once logged in, users can create, edit, and delete posts via the dashboard.
 
-User and post data is stored in a MySQL database. The app runs on a node server and is deployed via heroku.
+User and post data is stored in a MySQL database using the Sequelize ORM. The app runs on a node server and is deployed via heroku.
 
 The app can be found [here](https://sleepy-scrubland-82236.herokuapp.com/).
 
@@ -19,7 +19,9 @@ The app can be found [here](https://sleepy-scrubland-82236.herokuapp.com/).
 - HTML
 - CSS
 - JavaScript
+- Handebars.js
 - MySQL
+- Sequelize
 - Node.js
 - Express.js
 - Heroku
