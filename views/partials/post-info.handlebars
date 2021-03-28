@@ -5,7 +5,7 @@
     <div class="post-body">
         <p class="post-text mb-1">{{text}}</p>
         <div class="meta">
-            By {{user.username}} ▪ {{format_date created_at}} ▪
+            By {{user.username}} {{#if post.byUser}} (You!) {{/if}}▪ {{format_date created_at}} ▪
             <a href="/post/{{id}}" class="comment-link">{{comments.length}} {{format_plural "comment" comments.length}}</a>
         </div>
     </div>

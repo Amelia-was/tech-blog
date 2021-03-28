@@ -33,6 +33,11 @@ Post.init(
                 model: 'user',
                 key: 'id'
             }
+        },
+        by_session_user: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+            allowNull: false
         }
     },
     {
